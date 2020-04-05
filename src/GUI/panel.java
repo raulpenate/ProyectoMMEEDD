@@ -111,7 +111,7 @@ public class panel extends javax.swing.JFrame {
         radioApellido = new javax.swing.JRadioButton();
         btnBuscarClientes = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
-        jtxtBuscarCLiente1 = new javax.swing.JTextField();
+        jtxtBuscarEmpleado = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         radioNombreEmpleado = new javax.swing.JRadioButton();
         radioApellidoEmpleado = new javax.swing.JRadioButton();
@@ -436,7 +436,7 @@ public class panel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addGap(0, 51, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtxtBuscarCLiente1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(radioNombreEmpleado)
                         .addGap(18, 18, 18)
@@ -462,7 +462,7 @@ public class panel extends javax.swing.JFrame {
                     .addComponent(radioNombreEmpleado)
                     .addComponent(radioApellidoEmpleado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtxtBuscarCLiente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscarEmpleados)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -540,11 +540,8 @@ public class panel extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTabbedPane2)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -770,14 +767,14 @@ public class panel extends javax.swing.JFrame {
             this.mdBuscador.setRowCount(0);
             this.mdBuscador.setColumnCount(0);
             //Tabla Cuatril
-            String[] columnaPrecio = {"Nombre", "Apellido", "DUI", "Compra"};
+            String[] columnaPrecio = {"Nombre", "Apellido", "DUI", "Sucursal"};
             for (int i = 0; i < columnaPrecio.length; i++) {
                 this.mdBuscador.addColumn(columnaPrecio[i]);
             }
             jtableBuscador.setModel(mdBuscador);
             //IF de nombre o apellido
             if (radioNombre.isSelected()) {
-                String nombre = StringUtils.capitalize(jtxtBuscarCLiente.getText().trim());
+                String nombre = StringUtils.capitalize(jtxtBuscarEmpleado.getText().trim());
                 for (int i = 0; i < lSucursal.size(); i++) {
                     for (int j = 0; j < lSucursal.get(i).getlVenta().size(); j++) {
                         if (nombre.equals(lSucursal.get(i).getlVenta().get(j).getVendedor().getNombre())) {
@@ -875,7 +872,6 @@ public class panel extends javax.swing.JFrame {
             try {
                 double valorUno = Double.parseDouble(spValorUno.getValue() + "");
                 double valorDos = Double.parseDouble(spValorDos.getValue() + "");
-                System.out.println(lSucursal.get(0).getlVenta().get(0).getPrecio() + "\n" + Double.parseDouble(spValorUno.getValue().toString()) + "\n" + Double.parseDouble(spValorDos.getValue().toString()));
                 if (jrMayorQue.isSelected()) {
                     for (int i = 0; i < lSucursal.size(); i++) {
                         for (int j = 0; j < lSucursal.get(i).getlVenta().size(); j++) {
@@ -1004,7 +1000,7 @@ public class panel extends javax.swing.JFrame {
     private javax.swing.JTable jtableVentas;
     private javax.swing.JTable jtblCuatriles;
     private javax.swing.JTextField jtxtBuscarCLiente;
-    private javax.swing.JTextField jtxtBuscarCLiente1;
+    private javax.swing.JTextField jtxtBuscarEmpleado;
     private javax.swing.JRadioButton radioApellido;
     private javax.swing.JRadioButton radioApellidoEmpleado;
     private javax.swing.ButtonGroup radioGrupoCLientes;
